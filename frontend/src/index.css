@@ -2,31 +2,36 @@
 
 :root {
   /* App background (outer layout) */
-  --bg: #d0f6e3;
+  --bg: #F8FAFC;
 
   /* Surfaces: cards, modals, panels */
   --surface: #ffffff;
 
   /* Primary action color (CTAs) */
-  --primary: #4eb7b3;
+  --primary: #06B6D4;
 
   /* Hover / active feedback */
-  --primary-hover: #6dd5c7;
+  --primary-hover: #0891b2;
 
   /* Accents: highlights, tags, blocks */
-  --accent: #98e1d7;
+  --accent: #EEF2F6;
 
   /* Main readable text */
-  --text-main: #3b8ea0;
+  --text-main: #1E293B;
 
   /* Secondary / low-priority text */
-  --text-muted: #4eb7b3;
+  --text-muted: #475569;
 
   /* Soft separators and outlines */
-  --border: #98e1d7;
+  --border: #CBD5E1;
 
   /* Consistent rounding across UI */
   --radius: 0.75rem;
+
+  /* Theme-specific custom properties */
+  --sidebar-bg: #1E293B;
+  --sidebar-text: #F8FAFC;
+  --urgent: #F43F5E;
 }
 
 .dark {

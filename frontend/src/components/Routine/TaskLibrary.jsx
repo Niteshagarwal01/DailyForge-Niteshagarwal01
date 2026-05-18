@@ -30,9 +30,9 @@ function DraggableTask({ task }) {
       style={style}
       {...listeners}
       {...attributes}
-      className="group flex items-center gap-3 rounded-xl border-soft bg-black/200 dark:bg-slate-800/80 p-3
+      className="group flex items-center gap-3 rounded-xl border-soft bg-black/20 dark:bg-slate-800/80 p-3
                  cursor-grab active:cursor-grabbing
-                 hover:bg-white dark:hover:bg-slate-800 hover:shadow-md transition hover-lift"
+                 hover:bg-[var(--card-hover)] dark:hover:bg-slate-800 hover:shadow-md transition hover-lift"
       role="button"
       tabIndex={0}
       aria-label={`${task.title} - Drag to schedule or use arrow keys`}
@@ -43,7 +43,7 @@ function DraggableTask({ task }) {
         style={{
           backgroundColor:
             task.priority === "High"
-              ? "#ef4444"
+              ? "var(--urgent)"
               : task.priority === "Medium"
                 ? "#f59e0b"
                 : "#10b981",
@@ -69,18 +69,18 @@ export default function TaskLibrary({ onAddTask }) {
   );
 
   return (
-    <div className="card card-muted h-full flex flex-col animate-in">
+    <div className="card h-full flex flex-col animate-in" style={{ backgroundColor: 'var(--sidebar-bg)', color: 'var(--sidebar-text)', borderColor: 'var(--sidebar-bg)' }}>
       {/* Header */}
       <div className="mb-4">
         <div className="flex items-center gap-2">
-          <h2 className="text-lg font-semibold text-gray-500">
+          <h2 className="text-lg font-semibold" style={{ color: 'var(--sidebar-text)' }}>
   Task Library
 </h2>
-          <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-soft text-gray-500">
+          <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-soft" style={{ color: 'var(--sidebar-bg)', backgroundColor: 'var(--sidebar-text)' }}>
   {filteredTasks?.length ?? 0}
 </span>
         </div>
-        <p className="text-xs text-muted">Drag tasks into your week</p>
+        <p className="text-xs" style={{ color: 'var(--sidebar-text)', opacity: 0.8 }}>Drag tasks into your week</p>
       </div>
 
       {/* Search */}
@@ -89,7 +89,8 @@ export default function TaskLibrary({ onAddTask }) {
   placeholder="Search tasks…"
   value={query}
   onChange={(e) => setQuery(e.target.value)}
-  className="mb-4 rounded-xl border-soft px-3 py-2 text-sm focus:outline-none bg-transparent text-gray-500 placeholder:text-gray-500"
+  className="mb-4 rounded-xl border-soft px-3 py-2 text-sm focus:outline-none bg-transparent"
+  style={{ color: 'var(--sidebar-text)', borderColor: 'var(--sidebar-text)' }}
 />
 
       {/* Task List */}

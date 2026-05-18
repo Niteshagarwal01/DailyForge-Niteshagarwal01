@@ -116,7 +116,8 @@ export default function Tasks() {
           {selectedIds.length > 0 && (
             <button
               onClick={handleBulkDelete}
-              className="btn btn-danger flex items-center gap-2 cursor-pointer bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
+              className="btn flex items-center gap-2 cursor-pointer text-white px-4 py-2 rounded-lg transition"
+              style={{ backgroundColor: 'var(--urgent)' }}
             >
               <Trash2 size={18} /> Delete Selected ({selectedIds.length})
             </button>
@@ -235,7 +236,7 @@ export default function Tasks() {
                       key={task._id}
                       className="flex items-center gap-2 text-main"
                     >
-                      <span className="w-2 h-2 rounded-full bg-red-500" />
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--urgent)' }} />
                       {task.title}
                     </li>
                   ))}
@@ -261,12 +262,12 @@ export default function Tasks() {
               )}
             </div>
 
-            <div
               className={`card p-4 ${
                 isOverloaded
-                  ? "bg-red-50 text-red-600 dark:bg-red-950/20 dark:text-red-400"
+                  ? "dark:bg-red-950/20"
                   : "bg-green-50 text-green-700 dark:bg-green-950/20 dark:text-green-400"
               }`}
+              style={isOverloaded ? { backgroundColor: 'var(--urgent)', color: '#ffffff', opacity: 0.9 } : {}}
             >
               <p className="text-sm font-medium">
                 {isOverloaded
